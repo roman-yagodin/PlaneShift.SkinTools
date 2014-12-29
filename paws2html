@@ -1,0 +1,6 @@
+#!/bin/bash
+
+xsltproc --novalid -o "${1}.html" xslt/paws-default.xslt "${1}"
+
+# uncomment to preview file
+# x-www-browser "${1}.html" &

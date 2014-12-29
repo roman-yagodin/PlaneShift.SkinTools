@@ -1,0 +1,42 @@
+.screen 
+{ 
+	position:absolute;
+	border:1px dotted #000;
+	font-family:sans;
+	font-size:10px;
+	text-align:right;
+	background-color:transparent;
+}
+
+.screen-1024x768 { width:1024px; height:768px; }
+
+.screen-1024x576 { width:1024px; height:576px; line-height: 4em}
+
+.screen-1024x600 { width:1024px; height:600px; }
+
+.screen-800x600 { width:800px; height:600px; }
+
+.screen-640x480 { width:640px; height:480px; }
+
+.widget_description
+{
+	position:relative;
+}
+
+.widget 
+{ 
+	position:absolute;
+	font-family:sans;
+	font-size:8px;
+	border:1px dotted #777;
+	color:#fff;
+}
+
+.widget:hover { border:1px solid #fc0 }
+
+.widget_description .widget { background-color:#005;z-index:10 }
+.widget_description .widget .widget { background-color:#05a;z-index:20 }
+.widget_description .widget .widget .widget { background-color:#0af;color:#fff;z-index:30 }
+.widget_description .widget .widget .widget .widget { background-color:#0ff;color:#000;z-index:40 }
+
+
