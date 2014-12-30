@@ -5,7 +5,7 @@ PAWS (a short for "PlaneShift Advanced Window Specification") is XML-based langu
 *PlaneShift.SkinTools* project currently provides:
 
 * XSL transformation from PAWS to HTML to speedup skin development by allow previewing UI structure in the browser before testing it in the game client.
-* Auto-generated XSD schema to validate PAWS files.
+* Auto-generated XSD schemas to validate PAWS files.
 
 ![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_inventory.png "Standard inventory window structure")
 
@@ -49,20 +49,20 @@ This one will generate `buddy.xml.html` file, which can be opened in any browser
 
 ## Validation
 
-Folder `schemas` contain XSD v1.0 and v1.1 auto-generated schemas, made with *Trang* tool on `/planeshift/data/gui` contents from released client. 
+Folder `schema` contain XSD v1.0 and v1.1 auto-generated schemas, made with *Trang* tool on `/planeshift/data/gui` contents from released client. 
 
 To validate a file, use provided `paws-validate` script:
 
 ```Shell
-./paws-validate mypart.xml
+./paws-validate readbook.xml
 ```
 
 By default, script perform validation against XSD v1.0 schema.
 
 ## Required software
 
-Note that `paws2html` script uses `xsltproc` tool to do XSL transform, and `paws-validate` script uses `xmllint` tool to do schema validation. 
-Both tools are using `libxml2` library features.
+Note that provided scripts use `xsltproc` tool to do XSL transform and `xmllint` tool to do schema validation. 
+Both tools are based on `libxml2` library. To install them, use your package manager:
 
 ```Shell
 apt install libxml2-utils xsltproc # Debian
@@ -70,13 +70,13 @@ sudo apt-get install libxml2-utils xsltproc # Ubuntu
 ... # pull request please for other systems!
 ```
 
-## Development
+## To-Do's
 
-* Create XSD or (and) RELAX-NG schema definition using available PAWS files as a base.
-* Use created schema to validate PAWS files before packaging.
-* Automate skin packaging, excluding certain files / folder. 
-* Visualize `imagelist.xml`.
-* Provide interactive moving / resizing of widget blocks.
+- [x] Create XSD schema definition using available PAWS files as a base.
+- [x] Use created schema to validate PAWS files before packaging.
+- [ ] Automate skin packaging, excluding certain files / folder.
+- [ ] Visualize `imagelist.xml`.
+- [ ] Provide interactive moving / resizing of widget blocks.
 
 ## Links
 
