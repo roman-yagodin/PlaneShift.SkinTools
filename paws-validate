@@ -1,3 +1,3 @@
 #!/bin/bash
 
-xmllint --noout --schema schema/paws-core-auto-1.0.xsd ${1}
+xmllint --noout --schema schema/paws-core-auto-1.0.xsd "${1}"
