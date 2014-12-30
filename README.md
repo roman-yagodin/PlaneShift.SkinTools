@@ -12,13 +12,15 @@ PAWS (a short for "PlaneShift Advanced Window Specification") is XML-based langu
 
 Click *Download ZIP* button and unpack, or `git clone https://github.com/roman-yagodin/PlaneShift.SkinTools.git`
 
+Merge extracted files and folders with skin content, so scripts like `paws2html` should be placed in the root skin folder.
+
 ## Preview
 
 You could test *PlaneShift.SkinTools* by using files from PlaneShift install (`/planeshift/art/skins` (unzip them first), `/planeshift/data/ui`).
 
 ### Browser
 
-Add `xml-stylesheet` reference to the beginning of PAWS file (as shown below), then open PAWS file in the browser:
+Add `xml-stylesheet` reference entry to the beginning of PAWS file (as shown below), then open PAWS file in the browser:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -29,6 +31,7 @@ Add `xml-stylesheet` reference to the beginning of PAWS file (as shown below), t
 ![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_inventory.png "Standard inventory window structure")
 
 For `imagelist.xml` preview:
+
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xslt/paws-imagelist.xslt"?>
@@ -55,7 +58,7 @@ Use provided `paws2html` Bash script to make HTML file from PAWS one:
 
 ```
 
-This one will generate `buddy.xml.html` file, which can be opened in any browser (`xml-stylesheet` reference don't needed).
+This one will generate `buddy.xml.html` file with `paws-default.xslt` transform. Generated HTML file can be opened in any browser (no `xml-stylesheet` entry is needed).
 
 ## Validation
 
@@ -71,8 +74,7 @@ By default, script perform validation against XSD v1.0 schema.
 
 ## Required software
 
-Note that provided scripts use `xsltproc` tool to do XSL transform and `xmllint` tool to do schema validation. 
-Both tools are based on `libxml2` library. To install them, use your package manager:
+Note that provided scripts use `xsltproc` tool to do XSL transform and `xmllint` tool to do schema validation. Both tools are based on `libxml2` library. To install them, use your package manager:
 
 ```Shell
 apt install libxml2-utils xsltproc # Debian
@@ -85,7 +87,10 @@ sudo apt-get install libxml2-utils xsltproc # Ubuntu
 - [x] Create XSD schema definition using available PAWS files as a base.
 - [x] Use created schema to validate PAWS files before packaging.
 - [ ] Automate skin packaging, excluding certain files / folder.
+- [ ] Review folder structure to avoid conflicts with skin content.
 - [x] Visualize `imagelist.xml`.
+- [ ] Visualize `styles.xml`.
+- [ ] Merge various XSL transformations into single one.
 - [ ] Provide interactive moving / resizing of widget blocks.
 
 ## Links
