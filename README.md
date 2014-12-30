@@ -2,8 +2,10 @@
 
 PAWS (a short for "PlaneShift Advanced Window Specification") is XML-based language used to define UI parts and also custom skins for PlaneShift 3D Fantasy MMORPG. 
 
-*PlaneShift.SkinTools* project provides XSL transformation from PAWS to HTML to speedup skin development by allow previewing UI structure in the browser 
-before testing it in the game client.
+*PlaneShift.SkinTools* project currently provides:
+
+* XSL transformation from PAWS to HTML to speedup skin development by allow previewing UI structure in the browser before testing it in the game client.
+* Auto-generated XSD schema to validate PAWS files.
 
 ![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_inventory.png "Standard inventory window structure")
 
@@ -11,7 +13,7 @@ before testing it in the game client.
 
 Click *Download ZIP* button and unpack, or `git clone https://github.com/roman-yagodin/PlaneShift.SkinTools.git`
 
-## Use
+## Preview
 
 You could test *PlaneShift.SkinTools* by using files from PlaneShift install (`/planeshift/art/skins` (unzip them first), `/planeshift/data/ui`).
 
@@ -43,20 +45,35 @@ Use provided `paws2html` Bash script to make HTML file from PAWS one:
 
 ```
 
-This one will generate `buddy.xml.html` file, which can be opened in any browser (`xml-stylesheet` reference don't needed). 
+This one will generate `buddy.xml.html` file, which can be opened in any browser (`xml-stylesheet` reference don't needed).
 
-Note that `paws2html` uses `xsltproc` to do XSL transform, so it should be installed in your system:
+## Validation
+
+Folder `schemas` contain XSD v1.0 and v1.1 auto-generated schemas, made with *Trang* tool on `/planeshift/data/gui` contents from released client. 
+
+To validate a file, use provided `paws-validate` script:
 
 ```Shell
-apt install xsltproc # Debian
-sudo apt-get install xsltproc # Ubuntu
+./paws-validate mypart.xml
+```
+
+By default, script perform validation against XSD v1.0 schema.
+
+## Required software
+
+Note that `paws2html` script uses `xsltproc` tool to do XSL transform, and `paws-validate` script uses `xmllint` tool to do schema validation. 
+Both tools are using `libxml2` library features.
+
+```Shell
+apt install libxml2-utils xsltproc # Debian
+sudo apt-get install libxml2-utils xsltproc # Ubuntu
 ... # pull request please for other systems!
 ```
 
 ## Development
 
-* Create XSD or RELAX-NG shema definition using available PAWS files as a base.
-* Use created shema to validate PAWS files before packaging.
+* Create XSD or (and) RELAX-NG schema definition using available PAWS files as a base.
+* Use created schema to validate PAWS files before packaging.
 * Automate skin packaging, excluding certain files / folder. 
 * Visualize `imagelist.xml`.
 * Provide interactive moving / resizing of widget blocks.

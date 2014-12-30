@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="borderlist">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="border"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="border">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="topleft"/>
+                <xs:element ref="topright"/>
+                <xs:element ref="bottomleft"/>
+                <xs:element ref="bottomright"/>
+                <xs:element ref="leftmiddle"/>
+                <xs:element ref="rightmiddle"/>
+                <xs:element ref="topmiddle"/>
+                <xs:element ref="bottommiddle"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="topleft" type="image"/>
+    <xs:element name="topright" type="image"/>
+    <xs:element name="bottomleft" type="image"/>
+    <xs:element name="bottomright" type="image"/>
+    <xs:element name="leftmiddle" type="image"/>
+    <xs:element name="rightmiddle" type="image"/>
+    <xs:element name="topmiddle" type="image"/>
+    <xs:element name="bottommiddle" type="image"/>
+    <xs:element name="control_styles">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="style"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="credits_config">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="color"/>
+                <xs:element ref="area"/>
+                <xs:element ref="end"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="area">
+        <xs:complexType>
+            <xs:attribute name="boxed" use="required" type="xs:NCName"/>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="loop" use="required" type="xs:NCName"/>
+            <xs:attribute name="speed" use="required" type="xs:integer"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+            <xs:attribute name="x" use="required" type="xs:integer"/>
+            <xs:attribute name="y" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="end">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="msg" use="required"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="custom_widgets">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="widget"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="styles">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="style"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="widget_description">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="pawsCharDescription"/>
+                <xs:element ref="pawsConfigWindow"/>
+                <xs:element ref="pawsHelp"/>
+                <xs:element ref="pawsNpcDialogWindow"/>
+                <xs:element ref="pawsPetitionGMWindow"/>
+                <xs:element ref="pawsQuestListWindow"/>
+                <xs:element maxOccurs="unbounded" ref="widget"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsCharDescription">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="minframe"/>
+                <xs:element ref="title"/>
+                <xs:element ref="pawsTextBox"/>
+                <xs:element ref="pawsMultilineEditTextBox"/>
+                <xs:element maxOccurs="unbounded" ref="pawsButton"/>
+            </xs:sequence>
+            <xs:attribute name="configurable" use="required" type="xs:NCName"/>
+            <xs:attribute name="keepaspect" use="required" type="xs:NCName"/>
+            <xs:attribute name="movable" use="required" type="xs:NCName"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="resizable" use="required" type="xs:NCName"/>
+            <xs:attribute name="savepositions" use="required" type="xs:NCName"/>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="visible" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsConfigWindow">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="title"/>
+                <xs:element ref="pawsSimpleTree"/>
+                <xs:element ref="pawsWidget"/>
+                <xs:element maxOccurs="unbounded" ref="pawsButton"/>
+            </xs:sequence>
+            <xs:attribute name="configurable" use="required" type="xs:NCName"/>
+            <xs:attribute name="movable" use="required" type="xs:NCName"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="resizable" use="required" type="xs:NCName"/>
+            <xs:attribute name="savepositions" use="required" type="xs:NCName"/>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="visible" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsWidget">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="attachpoints"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsHelp">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="minframe"/>
+                <xs:element ref="title"/>
+                <xs:element ref="pawsSimpleTree"/>
+                <xs:element ref="pawsDocumentView"/>
+            </xs:sequence>
+            <xs:attribute name="configurable" use="required" type="xs:NCName"/>
+            <xs:attribute name="keepaspect" use="required" type="xs:NCName"/>
+            <xs:attribute name="movable" use="required" type="xs:NCName"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="resizable" use="required" type="xs:NCName"/>
+            <xs:attribute name="savepositions" use="required" type="xs:NCName"/>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="visible" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsDocumentView">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="attachpoints"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsNpcDialogWindow">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="minframe"/>
+                <xs:element ref="title"/>
+                <xs:element maxOccurs="unbounded" ref="widget"/>
+            </xs:sequence>
+            <xs:attribute name="configurable" use="required" type="xs:NCName"/>
+            <xs:attribute name="keepaspect" use="required" type="xs:NCName"/>
+            <xs:attribute name="movable" use="required" type="xs:NCName"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="resizable" use="required" type="xs:NCName"/>
+            <xs:attribute name="savepositions" use="required" type="xs:NCName"/>
+            <xs:attribute name="scalefont" use="required" type="xs:NCName"/>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="visible" use="required" type="xs:NCName"/>
+            <xs:attribute name="xmlbinding" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsPetitionGMWindow">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="minframe"/>
+                <xs:element ref="title"/>
+                <xs:element ref="widget"/>
+                <xs:element ref="pawsTextBox"/>
+                <xs:element ref="pawsMessageTextBox"/>
+                <xs:element maxOccurs="unbounded" ref="pawsButton"/>
+            </xs:sequence>
+            <xs:attribute name="configurable" use="required" type="xs:NCName"/>
+            <xs:attribute name="keepaspect" use="required" type="xs:NCName"/>
+            <xs:attribute name="movable" use="required" type="xs:NCName"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="resizable" use="required" type="xs:NCName"/>
+            <xs:attribute name="savepositions" use="required" type="xs:NCName"/>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="visible" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsQuestListWindow">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="title"/>
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element ref="pawsButton"/>
+                    <xs:element ref="pawsMessageTextBox"/>
+                    <xs:element ref="pawsMultilineEditTextBox"/>
+                    <xs:element ref="pawsTabWindow"/>
+                    <xs:element ref="pawsTextBox"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="configurable" use="required" type="xs:NCName"/>
+            <xs:attribute name="movable" use="required" type="xs:NCName"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="resizable" use="required" type="xs:NCName"/>
+            <xs:attribute name="savepositions" use="required" type="xs:NCName"/>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="visible" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="windows">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="window"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="window">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="alternativeName"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="alternativeName">
+        <xs:complexType>
+            <xs:attribute name="name" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="zodiacs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="zodiac"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="zodiac">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:NCName">
+                    <xs:attribute name="img" use="required" type="xs:NCName"/>
+                    <xs:attribute name="month" use="required" type="xs:integer"/>
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="style">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="checkbox"/>
+                <xs:element minOccurs="0" ref="font"/>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="bgimage"/>
+                    <xs:element ref="frame"/>
+                    <xs:element ref="highlight"/>
+                    <xs:element ref="title"/>
+                </xs:choice>
+                <xs:sequence minOccurs="0">
+                    <xs:element ref="up"/>
+                    <xs:element ref="down"/>
+                    <xs:element ref="thumb"/>
+                </xs:sequence>
+                <xs:element minOccurs="0" ref="childborders"/>
+                <xs:sequence minOccurs="0">
+                    <xs:element ref="buttonup"/>
+                    <xs:element ref="buttondown"/>
+                </xs:sequence>
+                <xs:element minOccurs="0" ref="buttonspecial"/>
+                <xs:choice>
+                    <xs:element ref="attachpoints"/>
+                    <xs:element ref="listbox"/>
+                    <xs:element ref="mask"/>
+                    <xs:element ref="text"/>
+                    <xs:sequence>
+                        <xs:element ref="bar"/>
+                        <xs:element ref="buttons"/>
+                        <xs:element maxOccurs="unbounded" ref="button"/>
+                    </xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="defaultstyle"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="changeonmouseover" type="xs:NCName"/>
+            <xs:attribute name="configurable" type="xs:NCName"/>
+            <xs:attribute name="inherit"/>
+            <xs:attribute name="movable" type="xs:NCName"/>
+            <xs:attribute name="name" use="required"/>
+            <xs:attribute name="savepositions" type="xs:NCName"/>
+            <xs:attribute name="shadows" type="xs:NCName"/>
+            <xs:attribute name="toggle" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="up">
+        <xs:complexType>
+            <xs:attribute name="grey" use="required"/>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="pressed" use="required"/>
+            <xs:attribute name="unpressed" use="required"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="down">
+        <xs:complexType>
+            <xs:attribute name="grey" use="required"/>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="pressed" use="required"/>
+            <xs:attribute name="unpressed" use="required"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="thumb">
+        <xs:complexType>
+            <xs:attribute name="moving" use="required"/>
+            <xs:attribute name="stopped" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="buttonspecial">
+        <xs:complexType>
+            <xs:attribute name="resource" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="bar">
+        <xs:complexType>
+            <xs:attribute name="always_resize" use="required" type="xs:NCName"/>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="min_h" use="required" type="xs:integer"/>
+            <xs:attribute name="min_w" use="required" type="xs:integer"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="buttons">
+        <xs:complexType>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="hide_height" use="required" type="xs:integer"/>
+            <xs:attribute name="hide_width" use="required" type="xs:integer"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="button">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="x" use="required" type="xs:integer"/>
+            <xs:attribute name="y" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="defaultstyle">
+        <xs:complexType>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="widget" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="color">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="name"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="widget">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="attachpoints"/>
+                    <xs:element ref="bgimage"/>
+                    <xs:element ref="buttondown"/>
+                    <xs:element ref="buttonup"/>
+                    <xs:element ref="checkbox"/>
+                    <xs:element ref="childborders"/>
+                    <xs:element ref="color"/>
+                    <xs:element ref="columns"/>
+                    <xs:element ref="font"/>
+                    <xs:element ref="frame"/>
+                    <xs:element ref="highlight"/>
+                    <xs:element ref="label"/>
+                    <xs:element ref="listbox"/>
+                    <xs:element ref="mask"/>
+                    <xs:element ref="minframe"/>
+                    <xs:element ref="pawsButton"/>
+                    <xs:element ref="pawsTextBox"/>
+                    <xs:element ref="text"/>
+                    <xs:element ref="title"/>
+                    <xs:element ref="widget"/>
+                    <xs:element ref="attr"/>
+                    <xs:element ref="available"/>
+                    <xs:element ref="bartender_slot"/>
+                    <xs:element ref="bgcolour"/>
+                    <xs:element ref="buttongraydown"/>
+                    <xs:element ref="buttongrayup"/>
+                    <xs:element ref="cameramod"/>
+                    <xs:element ref="danger"/>
+                    <xs:element ref="distance"/>
+                    <xs:element ref="eventShow"/>
+                    <xs:element ref="fadecolor"/>
+                    <xs:element ref="flash"/>
+                    <xs:element ref="form"/>
+                    <xs:element ref="ident"/>
+                    <xs:element ref="layout"/>
+                    <xs:element ref="map"/>
+                    <xs:element ref="maxframe"/>
+                    <xs:element ref="nodewidget"/>
+                    <xs:element ref="notify"/>
+                    <xs:element ref="pawsCheckBox"/>
+                    <xs:element ref="pawsScrollBar"/>
+                    <xs:element ref="radio"/>
+                    <xs:element ref="scrollbar"/>
+                    <xs:element ref="selected"/>
+                    <xs:element ref="show_stack_amount"/>
+                    <xs:element ref="subscriptions"/>
+                    <xs:element ref="warn"/>
+                </xs:choice>
+                <xs:choice>
+                    <xs:element ref="pawsListBox"/>
+                    <xs:element ref="eventMouseDown"/>
+                    <xs:element ref="offset"/>
+                    <xs:element ref="publish"/>
+                    <xs:element ref="spellChecker"/>
+                    <xs:element ref="tooltip"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="radionode"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="ContextMenu" type="xs:NCName"/>
+            <xs:attribute name="action"/>
+            <xs:attribute name="alpha" type="xs:integer"/>
+            <xs:attribute name="alwaysontop" type="xs:NCName"/>
+            <xs:attribute name="autoResize" type="xs:boolean"/>
+            <xs:attribute name="autoid" type="xs:NCName"/>
+            <xs:attribute name="border" type="xs:NMTOKEN"/>
+            <xs:attribute name="buttonimage"/>
+            <xs:attribute name="changeonmouseover" type="xs:NCName"/>
+            <xs:attribute name="collapsed" type="xs:NCName"/>
+            <xs:attribute name="configurable" type="xs:NCName"/>
+            <xs:attribute name="direction" type="xs:NCName"/>
+            <xs:attribute name="factory" type="xs:NCName"/>
+            <xs:attribute name="file"/>
+            <xs:attribute name="height" type="xs:integer"/>
+            <xs:attribute name="id" type="xs:integer"/>
+            <xs:attribute name="image" type="xs:NCName"/>
+            <xs:attribute name="keepaspect" type="xs:NCName"/>
+            <xs:attribute name="key" type="xs:NCName"/>
+            <xs:attribute name="label"/>
+            <xs:attribute name="margin" type="xs:integer"/>
+            <xs:attribute name="maxValue" type="xs:decimal"/>
+            <xs:attribute name="minValue" type="xs:integer"/>
+            <xs:attribute name="movable" type="xs:NCName"/>
+            <xs:attribute name="name"/>
+            <xs:attribute name="notify" type="xs:NCName"/>
+            <xs:attribute name="resizable" type="xs:NCName"/>
+            <xs:attribute name="resizeable" type="xs:NCName"/>
+            <xs:attribute name="resizetoscreen" type="xs:NCName"/>
+            <xs:attribute name="savepositions" type="xs:NCName"/>
+            <xs:attribute name="scalablefont" type="xs:NCName"/>
+            <xs:attribute name="scalefont" type="xs:NCName"/>
+            <xs:attribute name="selectable" type="xs:NMTOKEN"/>
+            <xs:attribute name="shadows" type="xs:NCName"/>
+            <xs:attribute name="sortBy" type="xs:integer"/>
+            <xs:attribute name="sortOrder" type="xs:NCName"/>
+            <xs:attribute name="sorted" type="xs:boolean"/>
+            <xs:attribute name="sound" type="xs:NCName"/>
+            <xs:attribute name="spacing" type="xs:integer"/>
+            <xs:attribute name="style"/>
+            <xs:attribute name="tickValue" type="xs:decimal"/>
+            <xs:attribute name="toggle" type="xs:NCName"/>
+            <xs:attribute name="tooltip"/>
+            <xs:attribute name="useImages" type="xs:boolean"/>
+            <xs:attribute name="vertical" type="xs:NCName"/>
+            <xs:attribute name="visible" type="xs:NCName"/>
+            <xs:attribute name="width" type="xs:integer"/>
+            <xs:attribute name="xmlbinding" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="attr">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="value" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="available">
+        <xs:complexType>
+            <xs:attribute name="rowheight" use="required" type="xs:integer"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="bartender_slot" type="xs:integer"/>
+    <xs:element name="bgcolour">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="buttongraydown">
+        <xs:complexType>
+            <xs:attribute name="resource" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="buttongrayup">
+        <xs:complexType>
+            <xs:attribute name="resource" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="cameramod">
+        <xs:complexType>
+            <xs:attribute name="x" use="required" type="xs:decimal"/>
+            <xs:attribute name="y" use="required" type="xs:decimal"/>
+            <xs:attribute name="z" use="required" type="xs:decimal"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="danger">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="level" use="required" type="xs:decimal"/>
+            <xs:attribute name="low" use="required" type="xs:boolean"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="distance">
+        <xs:complexType>
+            <xs:attribute name="value" use="required" type="xs:decimal"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="eventShow" type="xs:anyURI"/>
+    <xs:element name="fadecolor">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="flash">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="level" use="required" type="xs:decimal"/>
+            <xs:attribute name="low" use="required" type="xs:boolean"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+            <xs:attribute name="rate" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="form">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="enter"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="tab"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="enter">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tab">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ident">
+        <xs:complexType>
+            <xs:attribute name="container" use="required" type="xs:integer"/>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="layout">
+        <xs:complexType>
+            <xs:attribute name="levelSpacing" use="required" type="xs:integer"/>
+            <xs:attribute name="rowSpacing" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="map">
+        <xs:complexType>
+            <xs:attribute name="file" use="required"/>
+            <xs:attribute name="sector" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="maxframe">
+        <xs:complexType>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nodewidget">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="widget"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="notify">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsCheckBox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="text"/>
+            </xs:sequence>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsScrollBar">
+        <xs:complexType>
+            <xs:attribute name="arrowdown"/>
+            <xs:attribute name="arrowsize" type="xs:integer"/>
+            <xs:attribute name="arrowup"/>
+            <xs:attribute name="border" type="xs:NCName"/>
+            <xs:attribute name="maxValue" type="xs:decimal"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="radio">
+        <xs:complexType>
+            <xs:attribute name="off" use="required" type="xs:NCName"/>
+            <xs:attribute name="on" use="required" type="xs:NCName"/>
+            <xs:attribute name="size" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="scrollbar">
+        <xs:complexType>
+            <xs:attribute name="arrowdown"/>
+            <xs:attribute name="arrowsize" type="xs:integer"/>
+            <xs:attribute name="arrowup"/>
+            <xs:attribute name="border" type="xs:NCName"/>
+            <xs:attribute name="heightmod" type="xs:integer"/>
+            <xs:attribute name="width" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="selected">
+        <xs:complexType>
+            <xs:attribute name="rowheight" use="required" type="xs:integer"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="show_stack_amount" type="xs:integer"/>
+    <xs:element name="subscriptions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="subscribe"/>
+            </xs:sequence>
+            <xs:attribute name="format" type="xs:NCName"/>
+            <xs:attribute name="overwrite" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="subscribe">
+        <xs:complexType>
+            <xs:attribute name="data" use="required" type="xs:NMTOKEN"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="warn">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="level" use="required" type="xs:decimal"/>
+            <xs:attribute name="low" use="required" type="xs:boolean"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="eventMouseDown" type="xs:string"/>
+    <xs:element name="offset">
+        <xs:complexType>
+            <xs:attribute name="left" use="required" type="xs:integer"/>
+            <xs:attribute name="top" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="publish">
+        <xs:complexType>
+            <xs:attribute name="data" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="spellChecker">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="enable" use="required" type="xs:boolean"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tooltip">
+        <xs:complexType>
+            <xs:attribute name="string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="radionode">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="frame"/>
+                <xs:element ref="text"/>
+            </xs:choice>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="image">
+        <xs:sequence>
+            <xs:element ref="image"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="image">
+        <xs:complexType>
+            <xs:attribute name="file" use="required"/>
+            <xs:attribute name="resource" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="frame">
+        <xs:complexType>
+            <xs:attribute name="b" type="xs:integer"/>
+            <xs:attribute name="border"/>
+            <xs:attribute name="g" type="xs:integer"/>
+            <xs:attribute name="height" type="xs:integer"/>
+            <xs:attribute name="margin" type="xs:integer"/>
+            <xs:attribute name="name" type="xs:NCName"/>
+            <xs:attribute name="r" type="xs:integer"/>
+            <xs:attribute name="resizable" type="xs:NCName"/>
+            <xs:attribute name="style"/>
+            <xs:attribute name="visible" type="xs:NCName"/>
+            <xs:attribute name="width" type="xs:integer"/>
+            <xs:attribute name="x" type="xs:integer"/>
+            <xs:attribute name="y" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="minframe">
+        <xs:complexType>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="width" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="title">
+        <xs:complexType>
+            <xs:attribute name="align" use="required" type="xs:NCName"/>
+            <xs:attribute name="close_button" type="xs:NCName"/>
+            <xs:attribute name="resource" use="required"/>
+            <xs:attribute name="shadow" type="xs:NCName"/>
+            <xs:attribute name="style"/>
+            <xs:attribute name="text"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsSimpleTree">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element minOccurs="0" ref="widget"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="attachpoints">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="attach"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="attach">
+        <xs:complexType>
+            <xs:attribute name="point" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsTextBox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="frame"/>
+                <xs:element minOccurs="0" ref="font"/>
+                <xs:element minOccurs="0" ref="text"/>
+                <xs:element minOccurs="0" ref="attachpoints"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required"/>
+            <xs:attribute name="style"/>
+            <xs:attribute name="visible" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsMultilineEditTextBox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element minOccurs="0" ref="attachpoints"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsButton">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element ref="attachpoints"/>
+                    <xs:element ref="label"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:integer"/>
+            <xs:attribute name="name" use="required"/>
+            <xs:attribute name="style" use="required"/>
+            <xs:attribute name="toggle" type="xs:NCName"/>
+            <xs:attribute name="visible" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsMessageTextBox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element minOccurs="0" ref="attachpoints"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="style" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsTabWindow">
+        <xs:complexType>
+            <xs:sequence minOccurs="0">
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element ref="frame"/>
+                    <xs:element ref="pawsButton"/>
+                    <xs:element ref="pawsTabWindow"/>
+                </xs:choice>
+                <xs:element maxOccurs="unbounded" ref="pawsListBox"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:integer"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="visible" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="checkbox">
+        <xs:complexType>
+            <xs:attribute name="greyoff"/>
+            <xs:attribute name="greyon"/>
+            <xs:attribute name="off" use="required"/>
+            <xs:attribute name="on" use="required"/>
+            <xs:attribute name="size" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="font">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="bold" type="xs:NCName"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="horizAdjust" type="xs:NCName"/>
+            <xs:attribute name="name"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+            <xs:attribute name="resizetoscreen" type="xs:NCName"/>
+            <xs:attribute name="sb" type="xs:integer"/>
+            <xs:attribute name="scalefont" type="xs:NCName"/>
+            <xs:attribute name="sg" type="xs:integer"/>
+            <xs:attribute name="shadow" type="xs:NCName"/>
+            <xs:attribute name="size" type="xs:integer"/>
+            <xs:attribute name="sr" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="highlight">
+        <xs:complexType>
+            <xs:attribute name="resource" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="bgimage">
+        <xs:complexType>
+            <xs:attribute name="alpha" type="xs:integer"/>
+            <xs:attribute name="fade" type="xs:NCName"/>
+            <xs:attribute name="fading" type="xs:boolean"/>
+            <xs:attribute name="resource" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="childborders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="colour"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="colour">
+        <xs:complexType>
+            <xs:attribute name="b" use="required" type="xs:integer"/>
+            <xs:attribute name="g" use="required" type="xs:integer"/>
+            <xs:attribute name="r" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="buttonup">
+        <xs:complexType>
+            <xs:attribute name="resource" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="buttondown">
+        <xs:complexType>
+            <xs:attribute name="resource" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="text">
+        <xs:complexType>
+            <xs:attribute name="align" type="xs:NCName"/>
+            <xs:attribute name="horizAdjust" type="xs:NCName"/>
+            <xs:attribute name="position" type="xs:NCName"/>
+            <xs:attribute name="resizetoscreen" type="xs:NCName"/>
+            <xs:attribute name="string"/>
+            <xs:attribute name="vertAdjust" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="listbox">
+        <xs:complexType>
+            <xs:attribute name="alpha" type="xs:integer"/>
+            <xs:attribute name="fliptotop" type="xs:NCName"/>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="rows" use="required" type="xs:integer"/>
+            <xs:attribute name="text"/>
+            <xs:attribute name="useScrollBar" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="mask">
+        <xs:complexType>
+            <xs:attribute name="resource" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="label">
+        <xs:complexType>
+            <xs:attribute name="horizAdjust" type="xs:NCName"/>
+            <xs:attribute name="text" use="required"/>
+            <xs:attribute name="vertAdjust" type="xs:NCName"/>
+            <xs:attribute name="x" type="xs:integer"/>
+            <xs:attribute name="y" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="columns">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="column"/>
+            </xs:sequence>
+            <xs:attribute name="headings" type="xs:NCName"/>
+            <xs:attribute name="height" use="required" type="xs:integer"/>
+            <xs:attribute name="sortBy" type="xs:integer"/>
+            <xs:attribute name="sortOrder" type="xs:NCName"/>
+            <xs:attribute name="xmlbinding" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="column">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="pawsTextBox"/>
+                <xs:element ref="widget"/>
+            </xs:choice>
+            <xs:attribute name="height" type="xs:integer"/>
+            <xs:attribute name="sortable" type="xs:boolean"/>
+            <xs:attribute name="visible" type="xs:NCName"/>
+            <xs:attribute name="width" use="required" type="xs:integer"/>
+            <xs:attribute name="xmlbinding" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pawsListBox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frame"/>
+                <xs:element ref="columns"/>
+                <xs:element minOccurs="0" ref="attachpoints"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:integer"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="sortBy" type="xs:integer"/>
+            <xs:attribute name="visible" type="xs:NCName"/>
+            <xs:attribute name="xmlbinding" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
