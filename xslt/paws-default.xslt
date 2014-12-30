@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:output method="html" indent="yes" encoding="utf-8" doctype-public="html" />
+	<xsl:output method="html" indent="yes" encoding="UTF-8" doctype-public="html" />
 	<xsl:template match="/widget_description">
 		<html>
 			<head>
@@ -9,7 +9,7 @@
 			</head>
 			<body>
 				<div class="widget_description">
-					<xsl:apply-templates select="widget" />
+					<xsl:apply-templates />
 				</div>
 				<div class="screen screen-1024x768">1024x768</div>
 				<div class="screen screen-1024x576">1024x576</div>

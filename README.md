@@ -22,7 +22,7 @@ You could test *PlaneShift.SkinTools* by using files from PlaneShift install (`/
 Add `xml-stylesheet` reference to the beginning of PAWS file (as shown below), then open PAWS file in the browser:
 
 ```XML
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xslt/paws-default.xslt"?>
 
 ```
