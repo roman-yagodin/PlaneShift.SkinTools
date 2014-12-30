@@ -1,0 +1,26 @@
+.image_list { max-width:1170px; }
+
+.image
+{
+	float:left;
+	margin:5px;
+	padding:5px;
+	font-family:sans;
+	font-size:8px;
+	color:#000;
+}
+
+.image_label { }
+
+.image_icon
+{
+	display:block;
+	margin-top:5px;
+	border:1px dotted #ccc;
+	background-repeat:no-repeat;
+}
+
+.image:hover { background-color:#333; }
+
+.image:hover .image_label { color:#fff; }
+

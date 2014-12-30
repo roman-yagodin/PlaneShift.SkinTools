@@ -5,9 +5,8 @@ PAWS (a short for "PlaneShift Advanced Window Specification") is XML-based langu
 *PlaneShift.SkinTools* project currently provides:
 
 * XSL transformation from PAWS to HTML to speedup skin development by allow previewing UI structure in the browser before testing it in the game client.
+* XSL transformation from PAWS to HTML to visualize `imagelist.xml` resources.
 * Auto-generated XSD schemas to validate PAWS files.
-
-![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_inventory.png "Standard inventory window structure")
 
 ## Installation
 
@@ -26,6 +25,17 @@ Add `xml-stylesheet` reference to the beginning of PAWS file (as shown below), t
 <?xml-stylesheet type="text/xsl" href="xslt/paws-default.xslt"?>
 
 ```
+
+![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_inventory.png "Standard inventory window structure")
+
+For `imagelist.xml` preview:
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xslt/paws-imagelist.xslt"?>
+
+```
+
+![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_imagelist.png "Preview of imagelist.xml resources")
 
 Currently tested in the Firefox, should also work in the Iceweasel and (hopefully) in the IE. 
 Chrome (Chromium) should be started with `--allow-file-access-from-files` flag to make it work.
@@ -75,7 +85,7 @@ sudo apt-get install libxml2-utils xsltproc # Ubuntu
 - [x] Create XSD schema definition using available PAWS files as a base.
 - [x] Use created schema to validate PAWS files before packaging.
 - [ ] Automate skin packaging, excluding certain files / folder.
-- [ ] Visualize `imagelist.xml`.
+- [x] Visualize `imagelist.xml`.
 - [ ] Provide interactive moving / resizing of widget blocks.
 
 ## Links
