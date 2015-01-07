@@ -26,8 +26,8 @@
 			<xsl:attribute name="title">
 				<xsl:value-of select="@name" />: <xsl:value-of select="title/@text" />
 			</xsl:attribute>
-			<!-- REVIEW: Border width value? -->
-			<xsl:attribute name="style">left:<xsl:value-of select="frame/@x" />px;top:<xsl:value-of select="frame/@y" />px;width:<xsl:value-of select="frame/@width" />px;height:<xsl:value-of select="frame/@height" />px;<xsl:if test="frame/@border='yes'">padding:2px;</xsl:if><xsl:if test="@visible='no' and count(ancestor::*) > 1">display:none;</xsl:if><xsl:if test="@alwaysontop='yes'">z-index:1000;</xsl:if>
+			<xsl:attribute name="class">widget <xsl:if test="frame/@border='yes'">border</xsl:if></xsl:attribute>
+			<xsl:attribute name="style">left:<xsl:value-of select="frame/@x" />px;top:<xsl:value-of select="frame/@y" />px;width:<xsl:value-of select="frame/@width" />px;height:<xsl:value-of select="frame/@height" />px;<xsl:if test="@visible='no' and count(ancestor::*) > 1">display:none;</xsl:if><xsl:if test="@alwaysontop='yes'">z-index:1000;</xsl:if>
 			</xsl:attribute>
 			<xsl:value-of select="@name" />
 			<xsl:apply-templates />
