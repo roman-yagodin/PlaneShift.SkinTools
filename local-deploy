@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# base file name for skin package
+PACKAGE_NAME=enchanted_elves
+
+# PS client installation paths to copy skin to
+DEPLOY_PATHS="${HOME}/opt/PlaneShift/art/skins \
+			 ${HOME}/build/planeshift/planeshift/art/skins"
+
+# validate skin PAWS files
+echo; echo "Validating skin PAWS files:"
+./paws-validate
+
+# create skin package
+echo; echo "Creating skin package '${PACKAGE_NAME}.zip':"
+
+rm -f ${PACKAGE_NAME}.zip
+
+# zip skin, excluding "extras" directory and files, started with underscore ("_")
+zip -r -9 ${PACKAGE_NAME}.zip . -i \*.xml \*.png \*.dds -x extras/\* _\* \*.zip
+
+# do local deploy
+echo; 
+for deploy_path in ${DEPLOY_PATHS} ; do
+	cp -f ${PACKAGE_NAME}.zip "${deploy_path}"
+	echo "Skin package deployed to '${deploy_path}'."
+done
+
+echo; echo "Done."
+
