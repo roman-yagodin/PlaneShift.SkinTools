@@ -1,3 +1,17 @@
 #!/bin/bash
 
-xmllint --noout --schema schema/paws-core-auto-1.0.xsd "${1}"
+SCHEMA="schema/paws-core-auto-1.0.xsd"
+VALIDATE_CMD="xmllint --noout --schema ${SCHEMA}"
+
+if (( $# > 0 ))
+then
+	FILES_TO_VALIDATE=$@
+else
+	FILES_TO_VALIDATE=$(find . -name "*.xml" -and \! -name "_*.xml" )
+fi
+
+# validate all XML files
+for xml_file in ${FILES_TO_VALIDATE} ; do
+	$VALIDATE_CMD "${xml_file}"
+done
+
