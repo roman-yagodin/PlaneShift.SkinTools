@@ -38,6 +38,8 @@ For `imagelist.xml` preview:
 
 ```
 
+Note that `xml-stylesheet` reference entries are ignored by PS client application, so it's safe to leave them in the released skin packages - but this can change in the future PS releases. 
+
 ![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_imagelist.png "Preview of imagelist.xml resources")
 
 Currently tested in the Firefox, should also work in the Iceweasel and (hopefully) in the IE. 
@@ -64,10 +66,17 @@ This one will generate `buddy.xml.html` file with `paws-default.xslt` transform.
 
 Folder `schema` contain XSD v1.0 and v1.1 auto-generated schemas, made with *Trang* tool on `/planeshift/data/gui` contents from released client. 
 
-To validate a file, use provided `paws-validate` script:
+To validate PAWS files, use provided `paws-validate` script:
 
 ```Shell
+# validate single file:
 ./paws-validate readbook.xml
+
+# validate several files at once:
+./paws-validate readbook.xml infowindow.xml
+
+# validate all skin PAWS files (underscore-prefixed filenames like "_myfile.xml" will be ignored):
+./paws-validate
 ```
 
 By default, script perform validation against XSD v1.0 schema.
