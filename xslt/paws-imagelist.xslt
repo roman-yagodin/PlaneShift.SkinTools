@@ -2,17 +2,9 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html" indent="yes" encoding="UTF-8" doctype-public="html" />
 	<xsl:template match="/image_list">
-		<html>
-			<head>
-				<title />
-				<link rel="stylesheet" type="text/css" href="css/paws-imagelist.css" />
-			</head>
-			<body>
-				<div class="image_list">
-					<xsl:apply-templates />
-				</div>
-			</body>
-		</html>
+		<div class="image_list">
+			<xsl:apply-templates />
+		</div>
 	</xsl:template>
 	<xsl:template match="image">
 		<div class="image">

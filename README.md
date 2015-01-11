@@ -30,17 +30,9 @@ Add `xml-stylesheet` reference entry to the beginning of PAWS file (as shown bel
 
 ![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_inventory.png "Standard inventory window structure")
 
-For `imagelist.xml` preview:
-
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xslt/paws-imagelist.xslt"?>
-
-```
+![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_imagelist.png "Preview of imagelist.xml resources")
 
 Note that `xml-stylesheet` reference entries are ignored by PS client application, so it's safe to leave them in the released skin packages - but this can change in the future PS releases. 
-
-![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_imagelist.png "Preview of imagelist.xml resources")
 
 Currently tested in the Firefox, should also work in the Iceweasel and (hopefully) in the IE. 
 Chrome (Chromium) should be started with `--allow-file-access-from-files` flag to make it work.
@@ -99,7 +91,7 @@ sudo apt-get install libxml2-utils xsltproc # Ubuntu
 - [ ] Review folder structure to avoid conflicts with skin content.
 - [x] Visualize `imagelist.xml`.
 - [ ] Visualize `styles.xml`.
-- [ ] Merge various XSL transformations into single one.
+- [x] Merge various XSL transformations into single one.
 - [ ] Provide interactive moving / resizing of widget blocks.
 
 ## Links
