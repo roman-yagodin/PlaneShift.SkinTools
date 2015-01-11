@@ -28,7 +28,11 @@ Add `xml-stylesheet` reference entry to the beginning of PAWS file (as shown bel
 
 ```
 
+Standard inventory window structure:
+
 ![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_inventory.png "Standard inventory window structure")
+
+Preview of imagelist.xml resources:
 
 ![Screenshot](https://raw.githubusercontent.com/roman-yagodin/PlaneShift.SkinTools/master/images/screen_imagelist.png "Preview of imagelist.xml resources")
 
