@@ -31,17 +31,12 @@ body *
 	color:#fff;
 }
 
-.border { border:2px solid #fff; }
+.border { border:1px dotted #ccc; }
 
 .widget_description > .widget { background-color:#005;z-index:10; }
 .widget_description > .widget > .widget { background-color:#05a;z-index:20; }
 .widget_description > .widget > .widget > .widget { background-color:#0af;color:#fff;z-index:30; }
 .widget_description > .widget > .widget > .widget > .widget { background-color:#0ff;color:#000;z-index:40; }
-
-.widget_description > .widget.border { border-color:#003; }
-.widget_description > .widget > .widget.border { border-color:#039; }
-.widget_description > .widget > .widget > .widget.border { border-color:#09c; }
-.widget_description > .widget > .widget > .widget > .widget.border { border-color:#0aa; }
 
 .widget_description > .widget:hover { background-color:#500;z-index:100; }
 .widget_description > .widget > .widget:hover { background-color:#a50;z-index:200; }
