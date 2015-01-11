@@ -11,6 +11,6 @@ echo; echo "Creating skin package '${PACKAGE_NAME}.zip':"
 
 rm -f ${PACKAGE_NAME}.zip
 
-# zip skin, excluding "extras" directory and files, started with underscore ("_")
+# zip skin, excluding "src" and "pst" directories and underscore-prefixed filenames
 zip -r -9 ${PACKAGE_NAME}.zip . -i \*.xml \*.png \*.dds -x src/\* pst/\* _\* \*.zip
 
