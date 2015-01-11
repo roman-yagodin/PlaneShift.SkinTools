@@ -1,6 +1,8 @@
 #!/bin/bash
 
-xsltproc --novalid -o "${1}.html" xslt/paws-default.xslt "${1}"
+source ./pst-params
+
+$TRANSFORM_CMD "${1}.html" $TRANSFORM "${1}"
 
 # uncomment to preview file
 # x-www-browser "${1}.html" &

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ./pst-params
+
+# validate skin PAWS files & create skin package
+./pst-build
+
+# do local deploy
+echo; 
+for deploy_path in ${DEPLOY_PATHS} ; do
+	cp -f ${PACKAGE_NAME}.zip "${deploy_path}"
+	echo "Skin package deployed to '${deploy_path}'."
+done
+
+echo; echo "Done."
+

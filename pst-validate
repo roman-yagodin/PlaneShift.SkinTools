@@ -1,7 +1,6 @@
 #!/bin/bash
 
-SCHEMA="schema/paws-core-auto-1.0.xsd"
-VALIDATE_CMD="xmllint --noout --schema ${SCHEMA}"
+source ./pst-params
 
 if (( $# > 0 ))
 then
@@ -12,6 +11,6 @@ fi
 
 # validate all XML files
 for xml_file in ${FILES_TO_VALIDATE} ; do
-	$VALIDATE_CMD "${xml_file}"
+	$VALIDATE_CMD ${SCHEMA} "${xml_file}"
 done
 

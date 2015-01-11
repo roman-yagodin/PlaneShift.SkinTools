@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ./pst-params
+
+# validate skin PAWS files
+echo; echo "Validating skin PAWS files:"
+./pst-validate
+
+# create skin package
+echo; echo "Creating skin package '${PACKAGE_NAME}.zip':"
+
+rm -f ${PACKAGE_NAME}.zip
+
+# zip skin, excluding "extras" directory and files, started with underscore ("_")
+zip -r -9 ${PACKAGE_NAME}.zip . -i \*.xml \*.png \*.dds -x src/\* pst/\* _\* \*.zip
+
